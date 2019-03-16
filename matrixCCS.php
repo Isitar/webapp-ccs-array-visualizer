@@ -14,7 +14,7 @@ class matrixCCS {
 		$ir = $this->ir;
 		$jc = $this->jc;
 		$values = $this->values;
-		for ($i = 0; $i < max($ir); $i++) {
+		for ($i = 0; $i <= max($ir); $i++) {
 			$this->matrix[$i] = [];
 			for ($j = 0; $j < count($jc); $j++) {
 				$this->matrix[$i][$j] = 0;
@@ -78,7 +78,7 @@ class matrixCCS {
 			print('<th>' . $j . '</th>');
 		}
 		print('</tr>');
-		for ($i = 0; $i < max($ir); $i++) {
+		for ($i = 0; $i < count($this->matrix); $i++) {
 			print('<tr>');
 			print('<th class="heading">' . $i . '</th>');
 			for ($j = 0; $j < count($jc); $j++) {
