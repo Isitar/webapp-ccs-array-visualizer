@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  webapp:
+    image: php:7.3-apache
+    volumes:
+      - ".:/var/www/html"
+    ports:
+     - "5478:80"
