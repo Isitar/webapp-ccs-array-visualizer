@@ -6,6 +6,8 @@ class matrixCCS {
 	public $jc;
 	public $ir;
 	public $values;
+
+	public $b = [];
 	
 	
 	private $matrixFilled = false;
@@ -32,6 +34,12 @@ class matrixCCS {
 				$colChange = $jc[$colPtr];
 			}
 			$this->matrix[$ir[$vPtr]][$col] = $values[$vPtr];
+		}
+
+		if (count($this->b) > 0) {
+			for ($i = 0; $i < count($this->b); $i++) {
+				$this->matrix[$i][count($jc) -1] = $this->b[$i];
+			}
 		}
 		
 		$this->matrixFilled = true;
@@ -74,9 +82,10 @@ class matrixCCS {
 		print '<table>';
 		
 		print('<tr><th class="heading"></th>');
-		for ($j = 0; $j < count($jc); $j++) {
+		for ($j = 0; $j < count($jc) -1; $j++) {
 			print('<th>' . $j . '</th>');
 		}
+		print ('<th>RHS</th>');
 		print('</tr>');
 		for ($i = 0; $i < count($this->matrix); $i++) {
 			print('<tr>');
